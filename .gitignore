@@ -1,0 +1,4 @@
+.vagrant
+trusty-dev.box
+.ssh
+.gitconfig
