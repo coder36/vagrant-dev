@@ -17,7 +17,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     server.vm.provision "shell", inline: <<-EOS
       su - vagrant -c 'if [ -f /vagrant/.gitconfig ]; then cp /vagrant/.gitconfig ~; fi'
-      su - vagrant -c 'if [ -d /vagrant/.ssh ]; then cp -r /vagrant/.ssh ~; fi'
+      su - vagrant -c 'if [ -d /vagrant/.ssh ]; then cp -r /vagrant/.ssh ~; cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys; fi'
       echo "192.168.33.11 a" >> /etc/hosts
       echo "192.168.33.12 b" >> /etc/hosts
       echo "192.168.33.13 c" >> /etc/hosts
